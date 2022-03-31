@@ -1,0 +1,201 @@
+body{
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+#imgbgrd
+{
+    background-image: 
+       
+    url("./resources/wall.jpg");
+background-repeat: no-repeat;
+background-size:cover;
+}
+
+#first
+{
+    display: flex;
+  
+   /* background-position: right, left;  */
+    /* flex-wrap: nowrap; */
+    /* background-color:rgba(0, 0, 0, 0.204) ; */
+    /* background-image: "../IP Phase1/resources/library.jpg";  */
+    /* z-index: index;  */
+}
+
+.nav > div:hover >  a > img
+{
+    /* width:1%; */
+    filter: invert(100%);
+    transition:4s;
+}
+
+
+.ikl
+{
+    z-index:inherit;
+}
+
+#text
+{
+    margin-right: 20px;
+}
+
+.bookstand
+{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top:10px    
+    /* justify-content: space-between; */
+
+}
+
+#myBtn:hover
+{
+    background-color: white;
+    color: #34495e;
+    transition: 1s;
+}
+
+#myBtn
+{
+    display: none;
+    position: fixed;
+
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+
+    font-size: 26px;
+    /* border: 5px solid wheat ; */
+    /* outline: none; */
+    background-color: #34495e;
+    color: white;
+    cursor: pointer;
+    /* padding: 30px; */
+    padding-left:30px;
+    padding-right:30px ;
+    border-radius: 100px;
+  }
+
+/* .bookstand >a
+{
+    flex: 1;
+} */
+
+h1{
+    display: flex;
+}
+
+#section5
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#section4
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex:1;
+    justify-content: center;
+}
+
+#section4 > div{
+    margin: 20px;
+    border:1px solid rgb(174, 172, 172);
+    border-radius: 5px;
+    box-shadow:0px 0px 15px background;
+    /* box-shadow: 4px 2px 4px 2px rgba(0, 0, 0, 0.42); */
+}
+
+#section4 > div:hover > p
+{
+    color: grey;
+    /* color: rgb(174, 172, 172) */
+}
+
+#section4 > div:hover
+{
+    /* box-shadow:-16px 10px 16px 0px rgba(0, 0, 0, 0.42); */
+    box-shadow:none;
+    transition: 0.8s all;
+    /* background-color: #0237ab; */
+    filter: invert(100%) !important;
+    background-color: rgb(220, 220, 220);
+}
+
+#section5 > div >img{
+    width:300px;
+    height:300px;
+}
+#section5 > div 
+{
+margin-top:3px;
+margin: 20px;
+border:1px solid rgb(174, 172, 172);
+justify-content: center;
+border-radius:5px;
+background-color: rgb(165, 162, 162);
+}
+
+#section5 > div:hover
+{
+box-shadow:-16px 10px 16px 0px rgba(0, 0, 0, 0.42);
+transition: 0.5s all;
+}
+
+#dotd
+{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.bookstand div a img:hover
+{
+    box-shadow: 0 32px 75px black;
+    transform:scale(0.9);
+    transition-duration:0.7s;
+    transition-timing-function: ease-in-out;
+    transition-property: all;
+   
+    /* border-radius: 20px; */
+
+}
+
+#teammem
+{
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: nowrap; */
+    justify-content: space-around;
+}
+
+#teammem > div {
+    /* margin-bottom:15px; */
+    max-width: min-content;
+    /* align-content: center; */
+    /* justify-content: flex-start; */
+    /* flex-wrap: nowrap;  */
+}
+
+footer >div> div >ul > li{
+    list-style-type:none;
+    justify-content:flex-start;
+}
+
+footer >div
+{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#all
+{
+    justify-content: center;
+
+}

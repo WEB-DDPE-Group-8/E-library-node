@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>registration form</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="shortcut icon" href="./resources/logo/logo.png"/>
+        <!-- <script src="registration.js" defer ></script> -->
+    </head>
+    <body background="resources/banner-bg.jpg" >
+        <P align="center">
+           <B>LIBRARY MANAGMENT SYSTEM<br>REGISTRATION FORM FOR USER</B>
+        </P>
+        <form id="form_action">
+            <table align="center" bgcolor="transparent" height="450" width="450">
+                 <!-- beg of form -->
+                 <tr>
+                    <td>FIRST Name</td>
+                    <td>:</td>
+                    <td><input id=fname type="text" placeholder="First name" size="40" required></td>
+                
+                </tr>
+                <tr>
+                    <td >LAST Name</td>
+                    <td>:</td>
+                    <td><input id=lname type="text" placeholder="Last name" size="40" required></td>
+                
+                </tr>
+                
+                <tr>
+                    <td>Email </td>
+                    <td>:</td>
+                    <td><input id=email type="email" placeholder="name@domain.com" size="40" required></td>
+                </tr>
+                <tr>
+				    <td >Phone Number</td>
+					<td>:</td>
+                    <td>
+					   <input id=mob type="tel" placeholder="(###)###-####" size="40"
+					   pattern="\(\d{3}\)+\d{3}-\d{4}" />
+					</td>	
+			  </tr> 
+              <tr>
+                <td >User Name </td>
+                <td>:</td>
+                <td><input id=usrname type="text" placeholder="Username" size="40" required></td>
+            
+            </tr>
+
+
+                <tr>
+                    <td>Password</td>
+                    <td>:</td>
+                    <td><input id=pass type="password" placeholder="Password" size="40" required></td>
+                </tr>
+                <tr>
+                    <td >Confirm Password</td>
+                    <td>:</td>
+                    <td><input id=pass2 type="password" placeholder="Confirm Password" size="40" required></td>
+                </tr>
+                <tr>
+                   
+                    <td align="center">
+                           <input id= sub onclick="test()" type="submit" value="Submit">
+                    </td>
+                    <td>
+                           <input type="reset"   value="Clear">
+                    </td>
+                </tr>
+                <!-- end of form -->
+            </table>
+             <P align="center">
+                <B>Already a member<br><a href="loguser.html">Log in</a></B>
+             </P>
+        </form>
+        <table align="center">
+            <tr>
+                <td>
+                    
+                  <details>
+                      <summary>Read our privacy policy</summary>
+                      <iframe
+                      title="policy"
+                      width=800
+                      height=400
+src="privacypolicyonly.html" referrerpolicy="">
+                     </iframe>
+                     
+                </td>
+                
+            </tr>
+        </table>
+        <table align="center">
+            <tr>
+                <td><a href="#">support@bookmail.org</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.html#aboutus">About Us</a>
+    
+                </td>
+                <td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="privacypolicyonly.html">Privacy Policy</a>
+            </td>
+            </tr>
+        </table>
+    
+        <table align="center">
+                <td>
+                    Copyright &#169; Group 8, 2021, All Rights Reserved!
+               </td>
+            </tr>
+        </table>
+
+<script>            
+var fname = document.getElementById("fname")
+var lname = document.getElementById("lname")
+var email = document.getElementById("email")
+var mob = document.getElementById("mob")
+var sub = document.getElementById("sub")
+
+var usrname = document.getElementById("usrname")
+
+var pass = document.getElementById("pass")
+var pass2 = document.getElementById("pass2")
+           
+
+            // var form_action = document.getElementById("form_action")
+
+function rest()
+{
+if(pass.value == pass2.value)
+{
+    localStorage.setItem("loggedin", usrname.value)
+    console.log("last-loggedin:" + usrname.value)
+    form_action = document.getElementById("form_action")
+
+    form_action.setAttribute("action", "index.html")
+    console.log(form_action)
+}
+else
+{
+    alert("The two passwords you entered do not match")
+}
+}
+
+function test()
+{
+    var check = []
+    for(i=1;i<localStorage.length;i++)
+    {
+    check[i]=JSON.parse(localStorage.getItem(i)) 
+    }
+
+    var EmailList = []
+    for(i=1;i<5;i++)
+    {
+        console.log(check[i].email)
+        EmailList[i]= check[i].email; 
+    }
+
+    if(EmailList.includes(email.value))
+    {
+        
+        console.log(email.value)
+        alert(email.value + " already exists")
+    }
+    else
+    {
+        rest()
+    }
+}
+
+        </script>
+    </body>
+    
+</html>

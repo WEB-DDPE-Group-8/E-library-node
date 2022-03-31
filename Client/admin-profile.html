@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./resources/logo/logo.png"/>
+    <script src="user.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+    <title>Admin Profile</title>
+</head>
+<body>
+    <body background="resources/banner-bg.jpg">
+            <!-- header -->
+            <header>
+                <div class="nav">
+
+                    <div> <a href="#"> <br><img src="resources/logo/logoname2.png" alt="Book icon" width=40x height="auto"></a> </div>
+    
+                    <div> <a href="index.html"><img src="resources/hm.png"  width= 40px height="auto" /><br>Home</a> </div>
+                    <div> <a href="index.html#section2">&nbsp;<img src="resources/feture.png"  width= 40px height="auto" /><br>Featured</a></div>
+                    <div> <a href="catagory page.html">&nbsp;&nbsp&nbsp;<img src="resources/cat.png"  width= 40px height="auto" /> <br>Catagories</a></div>
+                    <div> <a href="index.html#section4">&nbsp;&nbsp;&nbsp;<img src="resources/icons/3061548-200.png"  width=40px height="auto" /> <br>Reviews</a></div>
+                    <div> <a href="index.html#section5">&nbsp;&nbsp;<img src="resources/Events.png"  width= 36px height="auto" /> <br>Events</a></div>
+                    <div> <a href="cart.html"> <img src="resources/icons/cart.jfif.png" alt="Cart" width= 40px> <br>Cart </a></div>
+                    <div> <a href="profile.html"><img src="resources/icons/person.jfif.png" alt="User's picture" width= 40px height=auto><br><span id="usrname">@user</span></a></div> 
+                    
+                </div>    
+            </header>
+     
+        <main>
+            <table width = "100px" align="center">
+                <tr>
+                    
+                   
+                    <td>
+                        <figure>
+                            <label for="cover">
+                                <img src="resources/icons/person.jfif.png" alt="name of user">
+                                <input hidden id="cover" type=file accept="image/*" multiple>
+                                <figcaption> name of the admin</figcaption>
+                            </label>
+                            
+                        </figure>
+                    </td>
+                    <td>
+                        <h2>@Adminname</h2> 
+                        <img src="resources/icons/location.png" alt="location icon" height = "50px">
+                        <span> Ethiopia, AA</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td> <hr> </td>
+                    <td> <hr> </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        <h3>Name: Selina</h3>
+                        <p> description about the person</p>
+                    </td>
+                    <td>
+                        <h3>Contact information</h3>
+                        <p>Address: Ethiopia <br> Addis-Ababa <br>kality </p>
+                        <p>phone: +25190345435</p>
+                        <p>E-mail: admin@domain.com</p>
+                        
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <details>
+                            <summary>books read</summary>
+                            <ul>
+                                <li>book 1 <img src="resources/oromay.jfif" alt="oromay" width = "64px"> </li>
+                                <li>book 2 <img src="resources/dertogada.jfif" alt="dertogada" width = "64px"> </li>
+                                <li>book 3 <img src="resources/fiker-eske.jfif" alt="fiker-eske-mekabir" width = "64px"> </li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>books uploaded</summary>
+                            <ul>
+                                <li>book 1 <img src="resources/oromay.jfif" alt="oromay" width = "64px"> </li>
+                                <li>book 2 <img src="resources/dertogada.jfif" alt="dertogada" width = "64px"> </li>
+                                <li>book 3 <img src="resources/fiker-eske.jfif" alt="fiker-eske-mekabir" width = "64px"> </li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>books liked</summary>
+                            <ul>
+                                <li>book 1 <img src="resources/oromay.jfif" alt="oromay" width = "64px"> </li>
+                                <li>book 3 <img src="resources/fiker-eske.jfif" alt="fiker-eske-mekabir" width = "64px"> </li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Saved books</summary>
+                            <ul>
+                                <li>book 3 <img src="resources/fiker-eske.jfif" alt="fiker-eske-mekabir" width = "64px"> </li>
+                            </ul>
+                        </details>
+                    </td>
+
+                    <td>
+                        <br>
+                        <a href="upload page.html">
+                            <button>
+                                Upload a book
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+               
+                
+            </table>
+              
+        </main>
+
+        <table align=center>
+            <tr>
+                <td>
+                    <big>
+                        Tasks for today
+                    </big>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <form action="">
+
+                   
+                    <details>
+                        <summary>Check</summary>
+                        <ol>
+                        <li>
+                            <label for="approval">
+                               <a href="#" Books to be Approved>Books to be Approved</a>
+                            </label>
+                            <input id="approval" type="checkbox" required>
+                            <li>
+                                <label for=2 >
+                                    <a href="#" Books to be Approved>Task 2</a>
+                                 </label>
+                                 <input id="2" type="checkbox" required>
+                            </li>
+                            <li>
+                                <label for=3 >
+                                    <a href="#" Books to be Approved>Task 3</a>
+                                 </label>
+                                 <input id="3" type="checkbox" required>
+                            </li>
+                            <li>
+                                <label for=3 >
+                                    <a href="#" Books to be Approved>Task 3</a>
+                                 </label>
+                                 <input id="3" type="checkbox" required>
+                            </li>
+                        </ol>
+                    </ul>
+                        <input type="submit" value="Done">
+                    </details>
+                    </form>
+                </td>
+            </tr>
+        </table>
+
+        
+       
+<div id= footer>
+    <div>
+        <a href="#">support@Bookmail.org</a>
+    </div>
+    
+    <div>
+        <a href="index.html#aboutus">About Us</a>
+     </div>
+    
+     <div>
+        <a href="privacy Policy.html">Privacy Policy</a>
+    </div>
+    
+    <div>
+        Copyright &#169; Group 8, 2021, All Rights Reserved!
+    </div>
+
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./resources/logo/logo.png"/>
+    <title>Profile </title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+<style>
+
+#profilepic > div
+{
+    display: flex;
+    flex-direction: column;
+    float: right;
+    margin-top: 130px;
+    /* padding-left:-500px; */   
+}
+
+
+#profile> div
+{
+ float:right;
+ padding-right: 60px;
+ 
+}
+
+
+#status ul
+{
+    display: block;
+    /* align-items:flex-end; */
+    /* background-color: rgb(6, 79, 79); */
+    justify-content: center;
+    list-style: none;
+}
+
+
+#upload button
+{
+    padding: 5px;
+}
+
+
+#info
+{
+    display: flex;
+}
+
+
+main
+{
+    margin:40px;
+}
+
+
+</style>
+
+</head>
+ 
+<body background="resources/banner-bg.jpg">
+        <!-- header -->
+        <header>
+            <div class="nav">
+
+                <div> <a href="#"> <br><img src="resources/logo/logoname2.png" alt="Book icon" width=40x height="auto"></a> </div>
+
+                <div> <a href="index.html"><img src="resources/hm.png"  width= 40px height="auto" /><br>Home</a> </div>
+                <div> <a href="index.html#section2">&nbsp;<img src="resources/feture.png"  width= 40px height="auto" /><br>Featured</a></div>
+                <div> <a href="catagory page.html">&nbsp;&nbsp&nbsp;<img src="resources/cat.png"  width= 40px height="auto" /> <br>Catagories</a></div>
+                <div> <a href="index.html#section4">&nbsp;&nbsp;&nbsp;<img src="resources/icons/3061548-200.png"  width=40px height="auto" /> <br>Reviews</a></div>
+                <div> <a href="index.html#section5">&nbsp;&nbsp;<img src="resources/Events.png"  width= 36px height="auto" /> <br>Events</a></div>
+                <div> <a href="cart.html"> <img src="resources/icons/cart.jfif.png" alt="Cart" width= 40px> <br>Cart </a></div>
+                <div> <a href="profile.html"><img src="resources/icons/person.jfif.png" alt="User's picture" width= 40px height=auto><br><span id="usrname">@user</span></a></div> 
+                
+            </div>    
+        </header>
+ 
+        <main>
+<div id="profilepic">
+   
+    <Div>           
+        
+        <img src="resources/icons/location.png" alt="location icon" height = "150px">
+        <span> Ethiopia, AA</span>
+    </Div> 
+              
+                        <figure>
+                            <label for="cover">
+                                <img src="resources/icons/person.jfif.png" alt="name of user">
+                                <input hidden id="cover" type=file accept="image/*" multiple>
+                                
+                            </label>
+                            
+                        </figure>
+                   
+
+</div>
+
+
+
+<div id= profile>        
+    <div>        
+        <h3>Contact information</h3>
+        <p>Address: Ethiopia <br> Addis-Ababa <br>kality </p>
+        <p>phone: +251345435</p>
+        <p>E-mail: name@domain.com</p>
+</div>    
+             
+                    <h3> <span id="prof_name"></span></h3>
+                    <p> Description about the person</p>
+                   
+      
+                  
+</div>
+
+<div id="status">
+        <ul>
+                        <details>
+                           <summary>Books read</summary> 
+                           <li>          <ul>          
+                                <li>Book 1 <img src="resources/Books/oromay.jfif" alt="oromay" width = "64px"> </li>
+                                <li>Book 2 <img src="resources/Books/dertogada.jfif" alt="dertogada" width = "64px"> </li>
+                                <li>Book 3 <img src="resources/Books/fiker-eske.jfif" alt="fiker-eske-mekabir" width = "64px"> </li>
+                            </ul>
+                        </details>
+                        <details>
+                           <summary>Books uploaded</summary>   
+                       <li>      <ul>                        </li>
+                                <li>Book 1 <img src="resources/Books/oromay.jfif" alt="oromay" width = "64px"> </li>
+                                <li>Book 2 <img src="resources/Books/dertogada.jfif" alt="dertogada" width = "64px"> </li>
+                                <li>Book 3 <img src="resources/Books/fiker-eske.jfif" alt="fiker-eske-mekabir" width = "64px"> </li>
+                            </ul>
+                        </details>
+                        <details>
+                          <summary>Books liked</summary>    
+                       <li>       <ul>                       </li>
+                                <li>Book 1 <img src="resources/Books/oromay.jfif" alt="oromay" width = "64px"> </li>
+                                <li>Book 3 <img src="resources/Books/fiker-eske.jfif" alt="fiker-eske-mekabir" width = "64px"> </li>
+                            </ul>
+                        </details>
+                        <details>
+                        <summary>Saved Books</summary>
+                       <li>        <ul>                        </li>
+                                <li>Book 1<img src="resources/Books/fiker-eske.jfif" alt="fiker-eske-mekabir" width = "64px"> </li>
+                            </ul>
+                        </details>
+                        
+                        <details>
+                           <summary>Purchased Books</summary>
+                          <li>        <ul>                       </li>
+                                    <li>
+                                        Book 1 <img src="resources/Books/13.jpg" width = "64px">
+                                    </li>
+                                </ul>
+                            
+                        </details>
+                    </ul>
+</div>
+
+<div id="Upload">
+                     
+                        
+                            <button>
+                              <a  href="upload page.html">Upload a Book </a>  
+                            </button>
+                        </div>           
+</div>
+                    
+</div>
+
+
+<div id= footer>
+<div>
+    <a href="#">support@Bookmail.org</a>
+</div>
+
+<div>
+    <a href="index.html#aboutus">About Us</a>
+ </div>
+
+ <div>
+    <a href="privacy Policy.html">Privacy Policy</a>
+</div>
+
+<div>
+    Copyright &#169; Group 8, 2021, All Rights Reserved!
+</div>
+</div>
+
+        </main>
+        <script src="user.js"></script>
+</body>
+</html>

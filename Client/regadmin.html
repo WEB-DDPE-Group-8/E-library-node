@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="./resources/logo/logo.png"/>
+        
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    
+        <title>registration form</title>
+    </head>
+    <body background="resources/banner-bg.jpg" >
+        <P align="center">
+           <B>LIBRARY MANAGMENT SYSTEM<br>REGISTRATION FORM FOR ADMIN</B>
+        </P>
+        <form id=form_action>
+            <table align="center" bgcolor="transparent" height="450" width="450">
+
+                    <!-- beg of form -->
+                <tr>
+                    <td>FIRST <br> Name<span class=ast> *</span></td>
+                    <td>:</td>
+                    <td><input id=fname type="text" placeholder="First name" size="40"  ></td>
+                
+                </tr>
+                <tr>
+                    <td >LAST <br>Name<span class=ast> *</span></td>
+                    <td>:</td>
+                    <td><input id=lname type="text" placeholder="Last name" size="40"  ></td>
+                
+                </tr>
+                
+                <tr>
+                    <td>Email <span class=ast> *</span> </td>
+                    <td>:</td>
+                    <td><input id=email type="email" placeholder="name@domain.com" size="40"  ></td>
+                </tr>
+                <tr>
+				    <td >Phone Number</td>
+					<td>:</td>
+                    <td>
+					   <input id=mob type="tel"   placeholder="(###)-(###)-(####)" size="40" pattern="\(\d{3}\)+\d{3}-?\d{4}"  />
+					</td>	
+			  </tr> 
+              <tr>
+                <td >User name <span class=ast> *</span></td>
+                <td>:</td>
+                <td><input id=usrname type="text" placeholder="Userame" size="40"  ></td>
+            
+            </tr>
+                <tr>
+                    <td >Password  <span class=ast> *</span></td>
+                    <td>:</td>
+                    <td><input id=pass type="password" placeholder="Password" size="40"   ></td>
+                </tr>
+                <tr>
+                    <td >Confirm Password  <span class=ast> *</span></td>
+                    <td>:</td>
+                    <td><input id=pass2 type="password" placeholder="Confirm Password" size="40"  ></td>
+                </tr>
+                <tr>
+                    <td >Admin<br>Code <span class=ast> *</span></td>
+                    <td>:</td>
+                    <td><input id=code type="password" placeholder="Admin Code" size="40" max-length=4  pattern="\d{4}" required></td>
+                </tr>
+                <tr>   
+                    <td align="center">
+                        <input id= sub onclick="test()" type="submit" value="Submit">
+                    </td>
+                    <td>
+                           <input type="reset"   value="Clear">
+                    </td>
+                </tr>
+                <!-- end of form -->
+            </table>
+             <P align="center">
+                <B>Already a member<br><a href="logadmin.html">Log in</a></B>
+             </P>
+        </form>
+        
+        <table align="center">
+            <tr>
+                <td>
+                    
+                    <details>
+                        <summary>Our Privacy policy</summary>
+                        <iframe id="inlineFrame"
+      title="Privacy Policy"
+      width="800"
+      height="400"
+      src="privacypolicyonly.html"></iframe>
+  
+                    </details>
+                  </td>
+            </tr>
+        </table>
+        <table align="center">
+            <tr>
+                <td><a href="#">support@bookmail.org</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.html#aboutus">About Us</a>
+    
+                </td>
+                <td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="privacypolicyonly.html">Privacy Policy</a>
+            </td>
+            </tr>
+           
+        </table>
+        <br>
+        
+        <table align="center">
+                <td>
+                    Copyright &#169; Group 8, 2021, All Rights Reserved!
+               </td>
+            </tr>
+        </table>
+<!-- registration -->
+        <script>
+
+var fname = document.getElementById("fname")
+var lname = document.getElementById("lname")
+var email = document.getElementById("email")
+var mob = document.getElementById("mob")
+var sub = document.getElementById("sub")
+var code = document.getElementById("code")
+
+var usrname = document.getElementById("usrname")
+
+var pass = document.getElementById("pass")
+var pass2 = document.getElementById("pass2")
+           
+
+            // var form_action = document.getElementById("form_action")
+
+function rest()
+{
+if(pass.value == pass2.value)
+{
+    localStorage.setItem("loggedin", usrname.value)
+    console.log("last-loggedin:" + usrname.value)
+    form_action = document.getElementById("form_action")
+
+    form_action.setAttribute("action", "index.html")
+    console.log(form_action)
+}
+else
+{
+    alert("The two passwords you entered do not match")
+}
+}
+
+function test()
+{
+    var check = []
+    var codes = JSON.parse(localStorage.getItem("Admincodes"))
+    
+    for(i=1;i<localStorage.length;i++)
+    {
+    check[i]=JSON.parse(localStorage.getItem(i)) 
+    }
+
+    var EmailList = []
+    for(i=1;i<5;i++)
+    {
+        console.log(check[i].email)
+        EmailList[i]= check[i].email; 
+    }
+
+    if(EmailList.includes(email.value))
+    {
+        
+        console.log(email.value)
+        alert(email.value + " already exists")
+    }
+    else if(codes.includes(code.value))
+    {
+        alert( "&#9888; You'll need an admin code to Register")
+    }
+    else
+    {
+        rest()
+    }
+}
+
+</script>
+
+
+
+
+<script>
+// sub.addEventListener("click", function()
+// {
+    // var unique = true;
+
+    // if(check == email)
+    // {
+    //     console.log("check" + check)
+    //     console.log("" + check)
+    //     //  unique=false;
+    //     //  rest()
+    //     alert(email +" "+ check +  " Email already in use")
+
+    // }
+    // else if(check != email && i==localStorage.length)
+    // {
+    //         rest();
+    // }
+    // }
+
+//     if(unique == false)
+//     {
+// alert(email +" "+ check +  "Email already in use")
+//     }    
+        // })
+
+</script>
+
+    </body>
+    
+</html>

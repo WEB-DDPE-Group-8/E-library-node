@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="./resources/logo/logo.png"/>
+        <script src="user.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    
+    <title>Upload</title>
+
+<style>
+
+select
+{
+padding: 6px 2px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #e8e8e8;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+input[type=text], textarea
+{
+padding: 6px 2px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #e8e8e8;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+input[type=date]
+{
+    background-color: #bababa;
+    border-radius: 4px;
+    border:none;
+    padding:4px 2px
+}
+
+input[type=submit]:hover
+{
+    background-color: #032879;
+}
+
+input[type=submit]
+{
+background-color:#0237ab;
+padding: 18px;
+border: none;
+border-radius: 5px;
+color: white;
+font-size:medium;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+margin-top: 25px;
+margin-left:50%;
+}
+
+
+input[type=file]
+{
+    background-color: #bababa;
+}
+
+
+select
+{
+    background-color: #bababa;
+}
+
+
+textarea
+{
+    border:none;
+    resize:none;
+}
+
+#uploadform
+{
+    margin-left:70px;
+}
+
+#uploadform p #bookname
+{
+    margin-left:70px;
+}
+#uploadform p #author
+{
+    margin-left:100px;
+}
+#uploadform p #date
+{
+    margin-left:40px;
+}
+#uploadform p #genre
+{
+    margin-left:90px;
+}
+#uploadform p #lang
+{
+    margin-left:110px;
+}
+
+    </style>
+
+    </head>
+
+<body background="resources/banner-bg.jpg">
+             <!-- header -->
+            <header>
+                <div class="nav">
+
+                    <div> <a href="#"> <br><img src="resources/logo/logoname2.png" alt="Book icon" width=40x height="auto"></a> </div>
+    
+                    <div> <a href="index.html"><img src="resources/hm.png"  width= 40px height="auto" /><br>Home</a> </div>
+                    <div> <a href="index.html#section2">&nbsp;<img src="resources/feture.png"  width= 40px height="auto" /><br>Featured</a></div>
+                    <div> <a href="catagory page.html">&nbsp;&nbsp&nbsp;<img src="resources/cat.png"  width= 40px height="auto" /> <br>Catagories</a></div>
+                    <div> <a href="index.html#section4">&nbsp;&nbsp;&nbsp;<img src="resources/icons/3061548-200.png"  width=40px height="auto" /> <br>Reviews</a></div>
+                    <div> <a href="index.html#section5">&nbsp;&nbsp;<img src="resources/Events.png"  width= 36px height="auto" /> <br>Events</a></div>
+                    <div> <a href="cart.html"> <img src="resources/icons/cart.jfif.png" alt="Cart" width= 40px> <br>Cart </a></div>
+                    <div> <a href="profile.html"><img src="resources/icons/person.jfif.png" alt="User's picture" width= 40px height=auto><br><span id="usrname">@user</span></a></div> 
+                    
+                </div>    
+            </header>
+ <div id="cont">    
+<center>
+        <p>This page is for a user to upload any file in a pdf format to our servers</p><br/>
+</center>  
+
+<div id="addbutton"style="float: right">                
+            <label for="cover">
+
+
+                <div > 
+                    <p>
+                    <label for="cover"> <img id=blah src="resources/add-image.png" width="52" > <br/> Add Cover Page(s) </label>
+                    </p>
+                </div>
+
+
+                <div>
+                    <p>
+                        <label for="filec"> <img id=nm src="resources/add-file.png" width="52px"> <br/> Add Book  </label>
+                        <input id="filec" type="file" required hidden >
+                        <script>
+                           filec.onchange = evt => {
+                                const [file] = filec.files
+                                if (file) {
+                                nm.src ="./resources/add-file-success.png"
+                                // blah.width="52px"
+                                }
+                            }
+                </script>
+                        
+                    </p>
+                </div>
+
+
+            </label><br/>
+            <input hidden id="cover" type=file accept="image/*" multiple>
+            <!-- <img id="blah" src="#" alt="your image" /> -->
+
+            <script>
+                        cover.onchange = evt => {
+                            const [file] = cover.files
+                            if (file) {
+                            blah.src = URL.createObjectURL(file)
+                            // blah.width="52px"
+                            }
+                        }
+            </script>
+              
+            
+</div>
+
+
+
+  <div id="uploadform">
+            <form action="success.html">
+        <p>
+        <label for="bookname">Book Name</label>
+        <input type="text" id="bookname"  required> 
+
+        </p>
+
+        <p>
+            <label for="author">Author</label>
+            <input type="text" id="author"/>
+        </p>
+
+        <p>
+            <label for="date" >Date of publishing</label>
+            <input id="date" type="date" value="2020-02-22" required></input>
+        </p>
+            
+<p>
+        <label for="genre">Category</label>
+        <select name="genre" id="genre" required>
+            <option value="">Choose an option</option>
+            <option value="Romance">Romance</option>
+            <option value="Educational">Educational</option>
+            <option value="Biography">Biography</option>
+            <option value="Sci-fi">Sci-fi</option>
+            <option  value="World history">World History</option>
+            <option  value="business">Business</option>
+        </select>
+</p>
+
+<p>
+        <label for="'lang">Language</label>
+
+        <select id="lang" name="lang" required>
+
+        <option value="English"    > English  </option>
+        <option value="French"    > French  </option>
+        <option value="Spanish"    > Spanish  </option>
+        <option value="Amharic"    >Amharic   </option>
+        <option value="Dutch"    >Dutch   </option>
+
+        </select>
+</p>
+
+<p>
+        <label for="Desc" title="Describe what your book is about, the characters, the plot and the setting but be sure not to includ spoilers">Description <br/></label>
+        <textarea id="Desc" required rows="10" cols="40">
+        </textarea>
+</p>
+
+<p>
+        <label for=tags title="Tags are what help your content be more discoverable for the search engine you can enter as much or as little as you want">Tags <br/> </label>
+        <textarea id=tags  cols=50 rows=5></textarea>
+</p>
+
+<p>
+         <input id=image type=submit alt=Submit value="Sumbit">
+</p>
+
+        </form>
+</div>
+
+</div>      
+<div id= footer>
+    <div>
+        <a href="#">support@Bookmail.org</a>
+    </div>
+    
+    <div>
+        <a href="index.html#aboutus">About Us</a>
+     </div>
+    
+     <div>
+        <a href="privacy Policy.html">Privacy Policy</a>
+    </div>
+    
+    <div>
+        Copyright &#169; Group 8, 2021, All Rights Reserved!
+    </div>
+
+    </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./resources/logo/logo.png" />
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="carrt.css" async />
+
+    <!-- <script src="user.js"></script> -->
+ 
+    <script src="addtocart.js"></script>
+
+
+    <title>Cart</title>
+  </head>
+
+  <body background="resources/banner-bg.jpg">
+    <!-- header -->
+    <header>
+      <div class="nav">
+        <div>
+          <a href="#">
+            <br /><img
+              src="resources/logo/logoname2.png"
+              alt="Book icon"
+              width="40x"
+              height="auto"
+          /></a>
+        </div>
+
+        <div>
+          <a href="index.html"
+            ><img
+              src="resources/hm.png"
+              width="40px"
+              height="auto"
+            /><br />Home</a
+          >
+        </div>
+        <div>
+          <a href="index.html#section2"
+            >&nbsp;<img
+              src="resources/feture.png"
+              width="40px"
+              height="auto"
+            /><br />Featured</a
+          >
+        </div>
+        <div>
+          <a href="catagory page.html"
+            >&nbsp;&nbsp&nbsp;<img
+              src="resources/cat.png"
+              width="40px"
+              height="auto"
+            />
+            <br />Catagories</a
+          >
+        </div>
+        <div>
+          <a href="index.html#section4"
+            >&nbsp;&nbsp;&nbsp;<img
+              src="resources/icons/3061548-200.png"
+              width="40px"
+              height="auto"
+            />
+            <br />Reviews</a
+          >
+        </div>
+        <div>
+          <a href="index.html#section5"
+            >&nbsp;&nbsp;<img
+              src="resources/Events.png"
+              width="36px"
+              height="auto"
+            />
+            <br />Events</a
+          >
+        </div>
+        <div>
+          <a href="cart.html">
+            <img src="resources/icons/cart.jfif.png" alt="Cart" width="40px" />
+            <br />Cart
+          </a>
+        </div>
+        <div>
+          <a href="profile.html"
+            ><img
+              src="resources/icons/person.jfif.png"
+              alt="User's picture"
+              width="40px"
+              height="auto"
+            /><br /><span id="usrname">@user</span></a
+          >
+        </div>
+      </div>
+    </header>
+
+    <div id=outer class="shop-items">
+
+      <!-- <div class="shop-item">
+        <span class="shop-item-title">css dictionary</span>
+        <img class="shop-item-image" src="resources/books/10.jpg" />
+        <div class="shop-item-details">
+          <span class="shop-item-price">$12.99</span>
+          <button class="btn btn-primary shop-item-button" type="button">
+            ADD TO CART
+          </button>
+        </div>
+      </div>
+
+      <div class="shop-item">
+        <span class="shop-item-title">The Alchemist : </span>
+        <img class="shop-item-image" src="resources/books/7.jpg" />
+        <div class="shop-item-details">
+          <span class="shop-item-price">$14.99</span>
+          <button class="btn btn-primary shop-item-button" type="button">
+            ADD TO CART
+          </button>
+        </div>
+      </div>
+
+      <div class="shop-item">
+        <span class="shop-item-title"> Finish what you start</span>
+        <img class="shop-item-image" src="resources/books/6.jpg" />
+        <div class="shop-item-details">
+          <span class="shop-item-price">$9.99</span>
+          <button class="btn btn-primary shop-item-button" type="button">
+            ADD TO CART
+          </button>
+        </div>
+      </div>
+
+      <div class="shop-item">
+        <span class="shop-item-title">RICH DAD</span>
+        <img class="shop-item-image" src="resources/books/5.jpg" />
+        <div class="shop-item-details">
+          <span class="shop-item-price">$19.99</span>
+          <button class="btn btn-primary shop-item-button" type="button">
+            ADD TO CART
+          </button>
+        </div>
+      </div>
+
+      <div class="shop-item">
+        <span class="shop-item-title">Guide to HTML5</span>
+        <img class="shop-item-image" src="resources/books/12.jpg" />
+        <div class="shop-item-details">
+          <span class="shop-item-price">$9.99</span>
+          <button class="btn btn-primary shop-item-button" type="button">
+            ADD TO CART
+          </button>
+        </div>
+      </div>
+
+      <div class="shop-item">
+        <span class="shop-item-title">Ego is the Enemy</span>
+        <img class="shop-item-image" src="resources/books/3.jpg" />
+        <div class="shop-item-details">
+          <span class="shop-item-price">$19.99</span>
+          <button class="btn btn-primary shop-item-button" type="button">
+            ADD TO CART
+          </button>
+        </div>
+      </div> -->
+    </div>
+
+    
+
+    <section class="container content-section">
+      <h2 class="section-header">CART</h2>
+      <div class="cart-row">
+        <span class="cart-item cart-header cart-column">ITEM</span>
+        <span class="cart-price cart-header cart-column">PRICE</span>
+      </div>
+      <div class="cart-items"></div>
+      <div class="cart-total">
+        <strong class="cart-total-title">Total</strong>
+        <span class="cart-total-price"> ETB 0</span>
+      </div>
+
+      <button class="btn btn-primary btn-purchase" type="button">
+        PURCHASE
+      </button>
+    </section>
+    <button onclick=clean()>Empty my cart</button>
+
+    <div id="footer">
+      <div>
+        <a href="#">support@Bookmail.org</a>
+      </div>
+
+      <div>
+        <a href="index.html#aboutus">About Us</a>
+      </div>
+
+      <div>
+        <a href="privacy Policy.html">Privacy Policy</a>
+      </div>
+
+      <div>Copyright &#169; Group 8, 2021, All Rights Reserved!</div>
+    </div>
+    <script src="cart.js" defer></script>
+  </body>
+</html>

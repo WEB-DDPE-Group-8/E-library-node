@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="shortcut icon" href="./resources/logo/logo.png"/>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        
+    
+        <title>Login form</title>
+
+    </head>
+    <body background="resources/banner-bg.jpg" >
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    
+
+        <form id="form_action">
+            <table align="center"  bgcolor="transparent"  >
+                <tr>
+                    <td align="center"><h4  >LIBRARY MANAGENT SYSTEM<br>USER LOGIN FORM</H4></td>
+                </tr>
+                <tr>
+                    <td >LOGIN AS </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>           
+                          <label for=user>User</label>
+                        </p>
+                    </td>
+                </tr>  
+                </tr>
+                <tr>
+                    <td align="center"><input id="email" type="email" placeholder="Email or Username" size="45" required></td>
+                </tr>
+                <tr>
+                    <td align="center"><input id="pass" type="password" placeholder="Password" size="45" required></td>
+                </tr>
+                <tr>
+                    <td align="center"> <input id="log"  type="submit"  value="log in"> </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Not yet a member?<a href="regpro.html"><br>Register</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        
+       
+
+        <button id="load">Load default info</button>
+        <button id="val">Validate</button>
+
+    <!--To Reset the values inside the local storage -->
+ <script>    
+// member={
+// id:1,
+// lname:"solomon",
+// fname:"tibebe",
+// username:"Tibebe",
+// email:"tibebe@gmail.com",
+// pass: "1234"
+// }
+
+
+// member=
+// {
+// id:2,
+// fname:"tsion",
+// lname:"tesfaye",
+// username:"Tsion",
+// email:"tsion@gmail.com",
+// pass: "1234"
+// }
+
+
+// member={
+// id:3,
+// fname:"selina",
+// lname:"l_name",
+// username:"Selina",
+// email:"selina@gmail.com",
+// pass: "1234"
+// }
+
+
+// member={
+// id:4,
+// fname:"betty",
+// lname:"mekonnen",
+// username:"Betty",
+// email:"betty@gmail.com",
+// pass: "1234"
+// }
+
+
+// member={
+// id:5,
+// fname:"tesfa",
+// lname:"amsalu",
+// username:"Tesfa",
+// email:"tesfa@gmail.com",
+// pass: "1234"
+// }
+
+localStorage.setItem(member.id , JSON.stringify(member))
+ </script>
+ 
+
+
+<!-- Validates the email and password -->
+ <script src="user.js"> </script>
+       
+<div id= footer>
+   
+    
+    <div>
+        Copyright &#169; Group 8, 2021, All Rights Reserved!
+    </div>
+
+    </div>
+    
+    </body>
+</html>
