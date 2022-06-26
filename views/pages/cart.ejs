@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <?php
+include '../config/dbconfig.php';
+
+?> -->
+    <style>
+        body{
+    background: #ddd;
+    min-height: 100vh; 
+    vertical-align: middle; 
+    /* display: flex; */
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.title{
+    margin-bottom: 5vh;
+}
+.card{
+    margin: auto;
+    /* max-width: 950px; */
+    width: 90%;
+    box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.19);
+    border-radius: 1rem 1rem 1rem 1rem;
+    border: transparent;
+}
+@media(max-width:767px){
+    .card{
+        margin: 3vh auto;
+    }
+}
+.cart{
+    background-color: #fff;
+    padding: 4vh 5vh;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
+@media(max-width:767px){
+    .cart{
+        padding: 4vh;
+        border-bottom-left-radius: unset;
+        border-top-right-radius: 1rem;
+    }
+}
+.summary{
+    background-color: #ddd;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 4vh;
+    color: rgb(65, 65, 65);
+}
+@media(max-width:767px){
+    .summary{
+    border-top-right-radius: unset;
+    border-bottom-left-radius: 1rem;
+    }
+}
+.summary .col-2{
+    padding: 0;
+}
+.summary .col-10
+{
+    padding: 0;
+}.row{
+    margin: 0;
+}
+.title b{
+    font-size: 1.5rem;
+}
+.main{
+    margin: 0;
+    padding: 2vh 0;
+    width: 100%;
+}
+.col-2, .col{
+    padding: 0 1vh;
+}
+.close{
+    margin-left: auto;
+    font-size: 0.7rem;
+}
+img{
+    width: 5.5rem;
+    height: 5.5rem;
+}
+.back-to-shop{
+    margin-top: 4.5rem;
+}
+h5{
+    margin-top: 4vh;
+}
+hr{
+    margin-top: 1.25rem;
+}
+form{
+    padding: 2vh 0;
+}
+select{
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1.5vh 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+}
+input{
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    /* background-color: rgb(247, 247, 247); */
+}
+input:focus::-webkit-input-placeholder
+{
+      color:transparent;
+}
+.btn{
+    background-color: #000;
+    border-color: #000;
+    color: white;
+    width: 100%;
+    font-size: 0.7rem;
+    margin-top: 4vh;
+    padding: 1vh;
+    border-radius: 0;
+}
+.btn:focus{
+    box-shadow: none;
+    outline: none;
+    box-shadow: none;
+    color: white;
+    -webkit-box-shadow: none;
+    -webkit-user-select: none;
+    transition: none; 
+}
+.btn:hover{
+    color: white;
+}
+/* a{
+    color: black; 
+} */
+/* a:hover{ */
+    /* color: black; */
+    /* text-decoration: none; */
+/* } */
+ #code{
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253) , rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center;
+}
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../multimedia/logo.png" type="image/icon type">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".del").click(function () {
+                var id = $(this).data("id");
+                console.log(id);
+
+                $.ajax({
+                    url: '/html/lib/cartfunctions.php',
+                    type: 'GET',
+                    data: {
+                        remove: id
+                    },
+                    success: function () {
+                        $('div#' + id + '').css('display', 'none');
+                        alert("Item removed from cart");
+                        // location.href="/HTML/uploads/Adler-Mortimer-How-To-Read-A-Book.pdf"
+                    },
+                    error: function (e) {
+                        $('div#' + id + '').fadeOut('slow');
+                        $('div#' + id + '').css('display', 'none');
+
+                    }
+                })
+            })
+
+            $(".dwnld").click(function () {
+                var id = $(this).data("id");
+                var url = $(this).data("url");
+
+                // $(this).css('display','none');
+
+                $.ajax({
+                    url: '/html/lib/cartfunctions.php',
+                    type: 'GET',
+                    data: {
+                        addto: id
+                    },
+                    success: function () {
+                        location.href = url;
+                        $('div#' + id + '').css('display', 'none');
+                        // alert("Item removed from cart");
+                    },
+                    error: function (e) {
+                        // $('div#'+id+'').css('display','none');
+                        // $('div#'+id+'').fadeOut('slow');
+                        alert(" error Item removing from cart");
+                    }
+                })
+            })
+        })
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="../multimedia/resources/logo/logo.png" />
+
+    <title>Cart</title>
+</head>
+
+<body background="resources/banner-bg.jpg">
+    <!-- header -->
+    <!-- <?php include("../inc/nav_bar.php");
+
+    ?>
+    final cart -->
+    <!-- <?php 
+
+$select_cart = mysqli_query($db, "SELECT books.Cover,books.Book,books.Title,books.Author,cart.UserID,cart.BookID,cart.Price FROM cart INNER JOIN BOOKS ON books.BookID = cart.BookID WHERE CART.UserID =$_SESSION[UserID]");
+$grand_total = 0;
+?> -->
+<%- include('../partials/navigation'); -%>
+    <div class="card">
+        <div class="row">
+            <div class="col-md-8 cart">
+                <div class="title">
+                    <div class="row">
+                        <div class="col">
+                            <h4><b>Wish List</b></h4>
+                        </div>
+                        <div class="col align-self-center text-right text-muted">
+                            <p><?php echo mysqli_num_rows($select_cart)?> Items<p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <?php 
+if(mysqli_num_rows($select_cart) > 0){
+   while($fetch_cart = mysqli_fetch_assoc($select_cart)){
+?> -->
+                <div id="<?php echo $fetch_cart['BookID']" class="row border-top border-bottom">
+                    <div class="row main align-items-center">
+                        <!-- <?php
+                        if($fetch_cart["BookID"]<=43){
+                        ?> -->
+                        <div class="col-2"><img class="img-fluid"
+                                src="../image/<?php echo $fetch_cart['BookID']; ?>.png'"></div>
+                        <!-- <?php
+                        }else{
+                        ?> -->
+                        <div class="col-2"><img class="img-fluid" src='<?php echo $fetch_cart["Cover"];?>'></div>
+                        <!-- <?php
+                        }
+                        ?> -->
+                        <div class="col">
+                            <div class="row text-muted"><?php echo $fetch_cart['Title']; ?></div>
+                            <div class="row">By <?php echo $fetch_cart['Author']; ?></div>
+                        </div>
+                        <div class="col">
+                            <button class="dwnld btn" data-id="<?php echo $fetch_cart['BookID']?>"
+                                data-url="<?php echo $fetch_cart['Book']?>">Download </button>
+                        </div>
+                        <div class="col"> <?php 
+                        
+                        ?> <span class="close" style="color:red"> <button data-id=<?php echo $fetch_cart['BookID']; ?>
+                                    class="fas fa-trash del" style="color:red"></button> </span></div>
+                    </div>
+                </div>
+                <!-- <?php 
+   }}
+   else{
+       ?> -->
+
+                <div class="row border-top border-bottom">
+                    <div class="row main align-items-center">
+                        <div class="col-2"></div>
+                        <div class="col">
+                            <div class="row text-muted"></div>
+                            <div class="row"></div>
+                        </div>
+                        <div class="col">
+                            <P>No items found in Wishlist </P>
+                        </div>
+                        <div class="col"> <span class="close" style="color:red"> <a> </a></span></div>
+                    </div>
+                </div>
+                <!-- <?php
+   }
+?> -->
+            </div>
+            <div class="col-md-4 summary">
+                <div>
+                    <h5><b>Summary</b></h5>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col" style="padding-left:0;">ITEMS <?php   ?></div>
+                    <div class="col text-right"><?php echo mysqli_num_rows($select_cart) ?></div>
+                </div>
+                <!-- <form>
+                      
+                        <p>GIVE CODE</p>
+                        <input id="code" placeholder="Enter your code">
+                    </form> -->
+                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <!-- <div class="col">TOTAL PRICE</div>
+                        <div class="col text-right">&dollar;<?php echo "count" ?></div> -->
+                </div>
+                <!-- <button class="btn">CHECKOUT</button> -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- final cart -->
+    <%- include('../partials/footer'); -%>

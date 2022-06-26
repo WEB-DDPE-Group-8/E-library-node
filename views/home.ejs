@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complete Responsive Online Book Store Website Design Tutorial</title>
+ 
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- custom css file link  -->
+    <!-- <link type="text/css" href="stylesheets/style.css" /> -->
+  </head>
+
+  <body>
+    <!-- header section starts  -->
+
+    <%- include('./partials/navigation'); -%>
+
+    <!-- header section ends -->
+
+    <!-- bottom navbar  -->
+
+    <!-- login form  -->
+
+   
+    <!-- home section starts  -->
+
+    <section class="home" id="home">
+      <div class="row">
+        <div class="content">
+          <h3>upto 75% off</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
+            deserunt nostrum accusamus. Nam alias sit necessitatibus, aliquid ex
+            minima at!
+          </p>
+          <a href="#" class="btn">shop now</a>
+        </div>
+
+        <div class="swiper books-slider">
+          <div class="swiper-wrapper">
+            <a href="#" class="swiper-slide"
+              ><img src="image/1.png" alt=""
+            /></a>
+            <a href="#" class="swiper-slide"
+              ><img src="image/2.png" alt=""
+            /></a>
+            <a href="#" class="swiper-slide"
+              ><img src="image/3.png" alt=""
+            /></a>
+            <a href="#" class="swiper-slide"
+              ><img src="image/4.png" alt=""
+            /></a>
+            <a href="#" class="swiper-slide"
+              ><img src="image/5.png" alt=""
+            /></a>
+            <a href="#" class="swiper-slide"
+              ><img src="image/6.png" alt=""
+            /></a>
+          </div>
+          <img src="image/stand.png" class="stand" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- home section ense  -->
+
+    <!-- icons section starts  -->
+
+    <section class="icons-container">
+      <div class="icons">
+        <i class="fas fa-shipping-fast"></i>
+        <div class="content">
+          <h3>free shipping</h3>
+          <p>order over $100</p>
+        </div>
+      </div>
+
+      <div class="icons">
+        <i class="fas fa-lock"></i>
+        <div class="content">
+          <h3>secure payment</h3>
+          <p>100 secure payment</p>
+        </div>
+      </div>
+
+      <div class="icons">
+        <i class="fas fa-redo-alt"></i>
+        <div class="content">
+          <h3>easy returns</h3>
+          <p>10 days returns</p>
+        </div>
+      </div>
+
+      <div class="icons">
+        <i class="fas fa-headset"></i>
+        <div class="content">
+          <h3>24/7 support</h3>
+          <p>call us anytime</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- icons section ends -->
+
+    <!-- featured section starts  -->
+
+    <%- include('./partials/bookslider'); -%>
+
+    <!-- featured section ends -->
+
+    <!-- newsletter section starts -->
+
+    <section class="newsletter">
+      <form action="">
+        <h3>subscribe for latest updates</h3>
+        <input
+          type="email"
+          name=""
+          placeholder="enter your email"
+          id=""
+          class="box"
+        />
+        <input type="submit" value="subscribe" class="btn" />
+      </form>
+    </section>
+
+    <!-- newsletter section ends -->
+
+    <!-- arrivals section starts  -->
+   
+    <%- include('./partials/newarrivalsection'); -%>
+
+    <!-- arrivals section ends -->
+
+    <!-- deal section starts  -->
+
+    <section class="deal">
+      <div class="content">
+        <h3>deal of the day</h3>
+        <h1>upto 50% off</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde
+          perspiciatis in atque dolore tempora quaerat at fuga dolorum natus
+          velit.
+        </p>
+        <a href="#" class="btn">shop now</a>
+      </div>
+
+      <div class="image">
+        <img src="image/deal-img.jpg" alt="" />
+      </div>
+    </section>
+
+    <!-- deal section ends -->
+
+    <!-- reviews section starts  -->
+
+    <section class="reviews" id="reviews">
+      <h1 class="heading"><span>client's reviews</span></h1>
+
+      <div class="swiper reviews-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide box">
+            <img src="image/pic-1.png" alt="" />
+            <h3>john deo</h3>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Aspernatur nihil ipsa placeat. Aperiam at sint, eos ex similique
+              facere hic.
+            </p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+
+          <div class="swiper-slide box">
+            <img src="image/pic-2.png" alt="" />
+            <h3>john deo</h3>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Aspernatur nihil ipsa placeat. Aperiam at sint, eos ex similique
+              facere hic.
+            </p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+
+          <div class="swiper-slide box">
+            <img src="image/pic-3.png" alt="" />
+            <h3>john deo</h3>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Aspernatur nihil ipsa placeat. Aperiam at sint, eos ex similique
+              facere hic.
+            </p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+          <div class="swiper-slide box">
+            <img src="image/pic-4.png" alt="" />
+            <h3>john deo</h3>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Aspernatur nihil ipsa placeat. Aperiam at sint, eos ex similique
+              facere hic.
+            </p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+
+          <div class="swiper-slide box">
+            <img src="image/pic-5.png" alt="" />
+            <h3>john deo</h3>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Aspernatur nihil ipsa placeat. Aperiam at sint, eos ex similique
+              facere hic.
+            </p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+
+          <div class="swiper-slide box">
+            <img src="image/pic-6.png" alt="" />
+            <h3>john deo</h3>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Aspernatur nihil ipsa placeat. Aperiam at sint, eos ex similique
+              facere hic.
+            </p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- reviews section ends -->
+
+    <!-- blogs section starts  -->
+
+  
+
+    <!-- blogs section ends -->
+
+    <!-- footer section starts  -->
+
+    <%- include('./partials/footer'); -%>
+    <!-- footer section ends -->
+
+    <!-- loader  -->
+
+    <!-- <div class="loader-container">
+      <img src="image/loader-img.gif" alt="" />
+    </div> -->
+  
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+  <!-- custom js file link  -->
+  <script
+searchForm = document.querySelector('.search-form');
+
+document.querySelector('#search-btn').onclick = () =>{
+  searchForm.classList.toggle('active');
+}
+
+let loginForm = document.querySelector('.login-form-container');
+
+document.querySelector('#login-btn').onclick = () =>{
+  loginForm.classList.toggle('active');
+}
+
+document.querySelector('#close-login-btn').onclick = () =>{
+  loginForm.classList.remove('active');
+}
+
+window.onscroll = () =>{
+
+  searchForm.classList.remove('active');
+
+  if(window.scrollY > 80){
+    document.querySelector('.header .header-2').classList.add('active');
+  }else{
+    document.querySelector('.header .header-2').classList.remove('active');
+  }
+
+}
+
+window.onload = () =>{
+
+  if(window.scrollY > 80){
+    document.querySelector('.header .header-2').classList.add('active');
+  }else{
+    document.querySelector('.header .header-2').classList.remove('active');
+  }
+
+  fadeOut();
+
+}
+
+function loader(){
+  document.querySelector('.loader-container').classList.add('active');
+}
+
+function fadeOut(){
+  setTimeout(loader, 4000);
+}
+
+var swiper = new Swiper(".books-slider", {
+  loop:true,
+  centeredSlides: true,
+  autoplay: {
+    delay: 9500,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
+});
+
+var swiper = new Swiper(".featured-slider", {
+  spaceBetween: 10,
+  loop:true,
+  centeredSlides: true,
+  autoplay: {
+    delay: 9500,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    450: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 3,
+    },
+    1024: {
+      slidesPerView: 4,
+    },
+  },
+});
+
+var swiper = new Swiper(".arrivals-slider", {
+  spaceBetween: 10,
+  loop:true,
+  centeredSlides: true,
+  autoplay: {
+    delay: 9500,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
+});
+
+var swiper = new Swiper(".reviews-slider", {
+  spaceBetween: 10,
+  grabCursor:true,
+  loop:true,
+  centeredSlides: true,
+  autoplay: {
+    delay: 9500,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
+});
+
+var swiper = new Swiper(".blogs-slider", {
+  spaceBetween: 10,
+  grabCursor:true,
+  loop:true,
+  centeredSlides: true,
+  autoplay: {
+    delay: 9500,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
+});
+
+  </script>

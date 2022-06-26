@@ -1,0 +1,38 @@
+<section class="arrivals" id="arrivals">
+  <h1 class="heading"><span>new arrivals</span></h1>
+
+  <div class="swiper arrivals-slider">
+    <div class="swiper-wrapper">
+
+      <% 
+      data.forEach(function(data){
+    %>
+      <a href="public/desc.php?bookid=<%= data.BookID %>"class="swiper-slide box">
+        <div class="image">
+          <%
+              if(data.BookID<=43){
+        %>
+          <img src="image/<%= data.BookID %>.png" alt="Cover page" />
+          <%
+        }else{
+        %>
+          <img src="<%= data.Cover%>" alt="Covert page" />
+          <%
+        }
+        %>
+
+        </div>
+        <div class="content">
+          <h3><%= data.Title %></h3>
+          <div class="stars">
+            <i class="fas fa-thumbs-up"> <%=  data.Likes %></i>
+            <i class="fas fa-thumbs-down"><%= data.Dislikes %></i>
+
+          </div>
+        </div>
+      </a>
+      <% }) %>
+
+    </div>
+  </div>
+</section>

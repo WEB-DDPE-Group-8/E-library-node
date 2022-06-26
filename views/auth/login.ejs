@@ -1,0 +1,563 @@
+<!-- <?php
+include "../config/dbconfig.php";
+include("../lib/db.php");
+
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login Form</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- <link rel="stylesheet" href="../css/pass.css">
+    <link rel="stylesheet" href="../css/error.css"> -->
+    <link rel="icon" href="../multimedia/logo.png" type="image/icon type" />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+      html,
+      body {
+        background: #f6f6f8;
+        font-family: "Poppins", sans-serif;
+      }
+      ::selection {
+        color: rgb(255, 255, 255);
+        background: #6665ee;
+      }
+      .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .container .form {
+        background: rgb(255, 255, 255);
+        padding: 30px 35px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+      .container .form form .form-control {
+        height: 40px;
+        font-size: 15px;
+      }
+      .container .form form .forget-pass {
+        margin: -15px 0 15px 0;
+      }
+      .container .form form .forget-pass a {
+        font-size: 15px;
+      }
+      .container .form form .btn {
+        background: #5bec7b;
+        color: #fff;
+        font-size: 17px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .container .form form .btn:hover {
+        background: #023110;
+      }
+      .container .form form .link {
+        padding: 5px 0;
+      }
+      .container .form form .link a {
+        color: #6665ee;
+      }
+      .container .login-form form p {
+        font-size: 14px;
+      }
+      .container .row .alert {
+        font-size: 14px;
+      }
+      .error {
+        border: 2px solid red;
+        border-radius: 4px;
+        background: rgba(250, 0, 0, 0.5);
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0px;
+        background: linear-gradient(
+          90deg,
+          rgba(47, 54, 64, 1) 23%,
+          rgba(24, 27, 32, 1) 100%
+        );
+      }
+
+      .moon {
+        background: linear-gradient(
+          90deg,
+          rgba(208, 208, 208, 1) 48%,
+          rgba(145, 145, 145, 1) 100%
+        );
+        position: absolute;
+        top: -100px;
+        left: -300px;
+        width: 900px;
+        height: 900px;
+        content: "";
+        border-radius: 100%;
+        box-shadow: 0px 0px 30px -4px rgba(0, 0, 0, 0.5);
+      }
+
+      .moon__crater {
+        position: absolute;
+        content: "";
+        border-radius: 100%;
+        background: linear-gradient(
+          90deg,
+          rgba(122, 122, 122, 1) 38%,
+          rgba(195, 195, 195, 1) 100%
+        );
+        opacity: 0.6;
+      }
+
+      .moon__crater1 {
+        top: 250px;
+        left: 500px;
+        width: 60px;
+        height: 180px;
+      }
+
+      .moon__crater2 {
+        top: 650px;
+        left: 340px;
+        width: 40px;
+        height: 80px;
+        transform: rotate(55deg);
+      }
+
+      .moon__crater3 {
+        top: -20px;
+        left: 40px;
+        width: 65px;
+        height: 120px;
+        transform: rotate(250deg);
+      }
+
+      .star {
+        background: grey;
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        content: "";
+        border-radius: 100%;
+        transform: rotate(250deg);
+        opacity: 0.4;
+        animation-name: shimmer;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      @keyframes shimmer {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 0.7;
+        }
+      }
+
+      .star1 {
+        top: 40%;
+        left: 50%;
+        animation-delay: 1s;
+      }
+
+      .star2 {
+        top: 60%;
+        left: 90%;
+        animation-delay: 3s;
+      }
+
+      .star3 {
+        top: 10%;
+        left: 70%;
+        animation-delay: 2s;
+      }
+
+      .star4 {
+        top: 90%;
+        left: 40%;
+      }
+
+      .star5 {
+        top: 20%;
+        left: 30%;
+        animation-delay: 0.5s;
+      }
+
+      .error {
+        position: absolute;
+        left: 100px;
+        top: 400px;
+        transform: translateY(-60%);
+        font-family: "Righteous", cursive;
+        color: #363e49;
+      }
+
+      .error__title {
+        font-size: 10em;
+      }
+
+      .error__subtitle {
+        font-size: 2em;
+      }
+
+      .error__description {
+        opacity: 0.5;
+      }
+
+      .error__button {
+        min-width: 7em;
+        margin-top: 3em;
+        margin-right: 0.5em;
+        padding: 0.5em 2em;
+        outline: none;
+        border: 2px solid #2f3640;
+        background-color: transparent;
+        border-radius: 8em;
+        color: #576375;
+        cursor: pointer;
+        transition-duration: 0.2s;
+        font-size: 0.75em;
+        font-family: "Righteous", cursive;
+      }
+
+      .error__button:hover {
+        color: #21252c;
+      }
+
+      .error__button--active {
+        background-color: #e67e22;
+        border: 2px solid #e67e22;
+        color: white;
+      }
+
+      .error__button--active:hover {
+        box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.5);
+        color: white;
+      }
+
+      .astronaut {
+        position: absolute;
+        width: 185px;
+        height: 300px;
+        left: 70%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(20deg) scale(1.2);
+      }
+
+      .astronaut__head {
+        background-color: white;
+        position: absolute;
+        top: 60px;
+        left: 60px;
+        width: 60px;
+        height: 60px;
+        content: "";
+        border-radius: 2em;
+      }
+
+      .astronaut__head-visor-flare1 {
+        background-color: #7f8fa6;
+        position: absolute;
+        top: 28px;
+        left: 40px;
+        width: 10px;
+        height: 10px;
+        content: "";
+        border-radius: 2em;
+        opacity: 0.5;
+      }
+
+      .astronaut__head-visor-flare2 {
+        background-color: #718093;
+        position: absolute;
+        top: 40px;
+        left: 38px;
+        width: 5px;
+        height: 5px;
+        content: "";
+        border-radius: 2em;
+        opacity: 0.3;
+      }
+
+      .astronaut__backpack {
+        background-color: #bfbfbf;
+        position: absolute;
+        top: 90px;
+        left: 47px;
+        width: 86px;
+        height: 90px;
+        content: "";
+        border-radius: 8px;
+      }
+
+      .astronaut__body {
+        background-color: #e6e6e6;
+        position: absolute;
+        top: 115px;
+        left: 55px;
+        width: 70px;
+        height: 80px;
+        content: "";
+        border-radius: 8px;
+      }
+
+      .astronaut__body__chest {
+        background-color: #d9d9d9;
+        position: absolute;
+        top: 140px;
+        left: 68px;
+        width: 45px;
+        height: 25px;
+        content: "";
+        border-radius: 6px;
+      }
+
+      .astronaut__arm-left1 {
+        background-color: #e6e6e6;
+        position: absolute;
+        top: 127px;
+        left: 9px;
+        width: 65px;
+        height: 20px;
+        content: "";
+        border-radius: 8px;
+        transform: rotate(-30deg);
+      }
+
+      .astronaut__arm-left2 {
+        background-color: #e6e6e6;
+        position: absolute;
+        top: 102px;
+        left: 7px;
+        width: 20px;
+        height: 45px;
+        content: "";
+        border-radius: 8px;
+        transform: rotate(-12deg);
+        border-top-left-radius: 8em;
+        border-top-right-radius: 8em;
+      }
+
+      .astronaut__arm-right1 {
+        background-color: #e6e6e6;
+        position: absolute;
+        top: 113px;
+        left: 100px;
+        width: 65px;
+        height: 20px;
+        content: "";
+        border-radius: 8px;
+        transform: rotate(-10deg);
+      }
+
+      .astronaut__arm-right2 {
+        background-color: #e6e6e6;
+        position: absolute;
+        top: 78px;
+        left: 141px;
+        width: 20px;
+        height: 45px;
+        content: "";
+        border-radius: 8px;
+        transform: rotate(-10deg);
+        border-top-left-radius: 8em;
+        border-top-right-radius: 8em;
+      }
+
+      .astronaut__arm-thumb-left {
+        background-color: #e6e6e6;
+        position: absolute;
+        top: 110px;
+        left: 21px;
+        width: 10px;
+        height: 6px;
+        content: "";
+        border-radius: 8em;
+        transform: rotate(-35deg);
+      }
+
+      .astronaut__arm-thumb-right {
+        background-color: #e6e6e6;
+        position: absolute;
+        top: 90px;
+        left: 133px;
+        width: 10px;
+        height: 6px;
+        content: "";
+        border-radius: 8em;
+        transform: rotate(20deg);
+      }
+
+      .astronaut__wrist-left {
+        background-color: #e67e22;
+        position: absolute;
+        top: 122px;
+        left: 6.5px;
+        width: 21px;
+        height: 4px;
+        content: "";
+        border-radius: 8em;
+        transform: rotate(-15deg);
+      }
+
+      .astronaut__wrist-right {
+        background-color: #e67e22;
+        position: absolute;
+        top: 98px;
+        left: 141px;
+        width: 21px;
+        height: 4px;
+        content: "";
+        border-radius: 8em;
+        transform: rotate(-10deg);
+      }
+
+      .astronaut__leg-left {
+        background-color: #e6e6e6;
+        position: absolute;
+        top: 188px;
+        left: 50px;
+        width: 23px;
+        height: 75px;
+        content: "";
+        transform: rotate(10deg);
+      }
+
+      .astronaut__leg-right {
+        background-color: #e6e6e6;
+        position: absolute;
+        top: 188px;
+        left: 108px;
+        width: 23px;
+        height: 75px;
+        content: "";
+        transform: rotate(-10deg);
+      }
+
+      .astronaut__foot-left {
+        background-color: white;
+        position: absolute;
+        top: 240px;
+        left: 43px;
+        width: 28px;
+        height: 20px;
+        content: "";
+        transform: rotate(10deg);
+        border-radius: 3px;
+        border-top-left-radius: 8em;
+        border-top-right-radius: 8em;
+        border-bottom: 4px solid #e67e22;
+      }
+
+      .astronaut__foot-right {
+        background-color: white;
+        position: absolute;
+        top: 240px;
+        left: 111px;
+        width: 28px;
+        height: 20px;
+        content: "";
+        transform: rotate(-10deg);
+        border-radius: 3px;
+        border-top-left-radius: 8em;
+        border-top-right-radius: 8em;
+        border-bottom: 4px solid #e67e22;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <?php
+foreach($errors as $error)
+                 {
+              ?> -->
+              <% 
+							if(typeof error !== 'undefined')
+							{ 
+						%>
+							<p class="error">
+								<%= error		%>
+							</p>
+						<% 
+							} 
+						%>
+    <p class="error">
+      <!-- <?php echo "please try again";}?> -->
+    </p>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 offset-md-4 form login-form">
+          <form action="" method="POST">
+            <h2 class="text-center">Login Form</h2>
+            <p class="text-center">
+              Login with your email/username and password.
+            </p>
+            <!-- <?php
+                    
+                 foreach($errors as $error)
+                 {
+              ?> -->
+            <p class="error">
+              <!-- <?php echo "please try again";}?> -->
+            </p>
+            <div class="form-group">
+              <!-- <input class="form-control"  name="cred" placeholder="Email Address" required > -->
+              <input
+                type="text"
+                class="form-control"
+                name="email"
+                id="user_email"
+                autocomplete="off"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <!-- <input class="form-control" type="password" name="pass" placeholder="Password" required> -->
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                id="user_pass"
+                placeholder="Enter new password"
+                required
+              />
+            </div>
+            <div class="link forget-pass text-left">
+              <label class="float-left" style="font-weight: normal">
+                <input type="checkbox" name="checkbox" /> Remember Me
+              </label>
+              <a
+                href="../pages/passReset_Request"
+                class="float-right"
+                style="color: #17202a"
+              >
+                Forgot Password?
+              </a>
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control btn"
+                type="submit"
+                name="log_user"
+                value="Login"
+              />
+            </div>
+            <div class="link login-link text-center">
+              Not yet a member?<a href="./signup">Sign Up</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

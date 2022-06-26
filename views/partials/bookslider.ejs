@@ -1,0 +1,21 @@
+
+<!-- <?php 
+
+      
+  $uri = $_SERVER['REQUEST_URI']; 
+ 
+  if(str_contains($uri, "profile")){
+    include "sectionslider.php";
+      return 0;
+  }
+  else if(!str_contains($uri, "index")){
+$newarray = array_chunk($books,3,TRUE);
+
+  foreach ($newarray as $books) {
+    include "../inc/sectionslider.php";
+}
+  } 
+  else{ -->
+    <%- include('section-slider'); -%>
+  <!-- }
+?> -->

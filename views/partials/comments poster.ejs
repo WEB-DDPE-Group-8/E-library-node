@@ -1,0 +1,188 @@
+<link rel="stylesheet" href="../css/comments2.css">
+<style>
+  body {
+  color: #666;
+  font: 75% 'Open Sans', 'Helvetica Neue', 'Arial', 'sans-serif';
+  line-height: 1.5;
+}
+
+h2 {
+  color: #27ae60;
+  font: 900 1.75em 'Roboto', 'Open Sans', 'Helvetica Neue', 'Arial', 'sans-serif';
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 2em;
+  height: 0.25em;
+  background: #27ae60;
+  margin-top: 0.5em;
+}
+
+.comments {
+  position: relative;
+  width: 100%;
+  color:#27ae60;
+  background: #fff;
+  margin: auto;
+  margin-bottom:50px;
+  padding: 27px;
+  box-sizing: border-box;
+  top: 5em;
+}
+
+.comments::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.comments__form-info,
+.comments__form-text {
+  width: 100%;
+  margin: 0;
+}
+
+.comments__form-info { float: left; }
+.comments__form-text { float: right; }
+
+.comments__form-field {
+  position: relative;
+}
+.comments__form-label {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  font: 700 1.125em 'Open Sans', 'Helvetica Neue', 'Arial', 'sans-serif';
+  cursor: text;
+  pointer-events: none;
+}
+
+.comments__form-label-text {
+  display: block;
+  transform: translateY(100%);
+  opacity: 0;
+  transition-duration: 0.5s;
+  transition-property: transform, opacity;
+}
+.comments__form-input:focus::-webkit-input-placeholder {
+   color: transparent;
+}
+.comments__form-input:focus + .comments__form-label .comments__form-label-text {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.comments__form-label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #27ae60;
+  bottom: 1em;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+
+.comments__form-input:focus + .comments__form-label::after {
+  transform: scaleX(1);
+}
+
+.comments__form-input {
+  position: relative;
+  width: 100%;
+  padding: 1em 0;
+  border: 0;
+  outline: 0;
+  margin: 1em 0;
+  border-bottom: 3px solid #ddd;
+  vertical-align: bottom;
+  font: 400 1.125em 'Open Sans', 'Helvetica Neue', 'Arial', 'sans-serif';
+}
+
+.comments__form-textarea {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+}
+
+.comments__form-submit {
+  padding: 0.5em;
+  margin: 1em 0;
+  background: none;
+  color:#27ae60;
+  border: 3px solid #27ae60;
+  font: 700 1em 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  opacity: 0.25;
+}
+
+.comments__form-submit:hover {
+  opacity: 1;
+}
+
+
+@media only screen and (min-width: 1020px) {
+
+  .comments { width:100%;; padding: 52px; }
+
+  .comments__form-info,
+  .comments__form-text { width: 100%; }
+
+}
+
+
+</style>
+<div class="comments">
+
+  <h2>Leave a comment</h2>
+
+  <form class="comments__form" action="comments poster.php" method="POST">
+    <!-- <?php 
+  
+  if(isset($_POST["submit"]))
+{
+  if(!isset($_SESSION["loggedin"]) )
+  {
+  header("location:login.php");
+  } 
+  include "../config/dbconfig.php";
+
+  $Content = mysqli_real_escape_string($db,$_POST["author"]);
+  $UserID = $_SESSION["UserID"];
+  $BookID = $Id;
+  $Reaction=2;
+
+  $sql = "INSERT into reviews (UserID,BookID,Content,reaction) values ( $UserID,$BookID,'$Content',$Reaction)";
+
+  $db->query($sql);
+}
+  ?> -->
+    <div class="comments__form-info">
+      <div class="comments__form-text">
+
+        <div class="comments__form-field">
+          <textarea id="comments__form-label-text" name="author" placeholder="Express your thoughts" type="text"
+            class="comments__form-input comments__form-textarea"></textarea>
+          <label class="comments__form-label" for="comments__form-label-text">
+            <span class="comments__form-label-text">Express your thoughts</span>
+          </label>
+        </div>
+
+      </div>
+      <input name="submit" type="submit" id="submit" class="comments__form-submit" value="Post Comment">
+  </form>
+</div>
+
+</div>
+<script src="../js/comments2.js"></script>
