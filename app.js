@@ -53,9 +53,10 @@ app.use(
 );
 
 app.use(flash());
+app.use(require("./routes/books"));
 app.use(require("./routes/authenticate"));
 app.use(require("./routes/courses"));
-app.use(require("./routes/books"));
+
 app.use(require("./routes/events"));
 
 app.use((err, req, res, next) => {

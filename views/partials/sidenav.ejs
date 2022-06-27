@@ -1,0 +1,116 @@
+<div class="navcontainer">
+  <div id="navv">
+    <span style="font-size: 20px; cursor: pointer" onclick="openNav()"
+      >&#9776; Filter By</span
+    >
+  </div>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+      >&times;</a
+    >
+    <p>CATEGORIES</p>
+
+    <ul>
+      <!-- <?php
+      $fetch = "SELECT DISTINCT Genre FROM books";
+      $genre_show = mysqli_query($db, $fetch);
+      while($genres = mysqli_fetch_array($genre_show)){
+      
+      ?> -->
+
+      <li>
+        <a href="?g=<?php echo $genres[0]?>"><?php echo $genres[0]?></a>
+      </li>
+
+      <!-- 
+      <?php
+      }
+      ?> -->
+    </ul>
+    <p>Published</p>
+    <ul>
+      <li><a href="?m=30">Past Month</a></li>
+      <li><a href="?hy= 180"> Past 6 monthts </a></li>
+      <li><a href="?y= 365">Past year</a></li>
+      <li><a href="?fy= 1825">Past 5 years</a></li>
+    </ul>
+  </div>
+</div>
+<!-- side nav css -->
+<style>
+  li {
+    list-style-image: url("try.png");
+  }
+
+  #navv {
+    padding-top: 50px;
+    top: 140;
+    position: absolute;
+    z-index: 11;
+  }
+  .sidenav {
+    width: 0;
+    height: 100%;
+    position: absolute;
+    z-index: 24;
+    top: 140;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 50px;
+    font-size: 20px;
+    color: #818181;
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  .sidenav a:hover {
+    color: #2fcc37;
+  }
+  .sidenav .closebtn {
+    top: 0;
+
+    font-size: 30px;
+  }
+  .closebtn {
+    right: 25px;
+    margin-left: 200px;
+  }
+
+  p,
+  ul {
+    margin-left: 30px;
+  }
+  @media screen and (max-height: 450px) {
+    .sidenav {
+      padding-top: 15px;
+    }
+    .sidenav a {
+      font-size: 18px;
+    }
+  }
+  ul {
+    padding-top: 20px;
+  }
+  p {
+    color: rgb(57, 87, 12);
+    font-size: 25px;
+  }
+</style>
+
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "300px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+</script>

@@ -11,9 +11,8 @@ const {
   loginPage,
 } = require("../controllers/authController");
 
-const { bookshelf } = require("../controllers/authController");
 
-const { desc,booksPage } = require("../controllers/bookController");
+const { desc,booksPage, bookshelf  } = require("../controllers/bookController");
 
 const { isLoggedin, isNotLoggedin } = require("../lib/check_authentication");
 const validator = require("../lib/validation_rules");

@@ -1,24 +1,10 @@
-<!-- <?php  
-   
-   include("../config/dbconfig.php");
- 
-
-  if( isset($_GET["bookid"]))
-  {
-     $Id = $_GET["bookid"];
-     $query = $db->query("Select * from books where BookID= $Id ");
-             
- if($query->num_rows > 0)
- {
-   $GLOBALS['row'] = $query->fetch_assoc()
-  ?> -->
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Product Card/Page</title>
+  <title>Description</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="../css/desc.css" />
   <link rel="icon" href="../multimedia/logo.png" type="image/icon type">
@@ -253,11 +239,9 @@ img{
     }
 }
 </style>
+
 <body>
-  <!-- <?php 
-    include("../inc/nav_bar.php");
-    
-    ?> -->
+
     <%- include('../partials/navigation'); -%>
   <div class="card-wrapper">
     <div class="card">
