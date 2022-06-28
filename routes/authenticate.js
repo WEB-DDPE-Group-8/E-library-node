@@ -49,6 +49,7 @@ router.get("/pages/passReset_Request", isNotLoggedin, forgotPassword);
 router.post("/pages/passReset_Request", isNotLoggedin, sendResetPassLink);
 
 router.get("/pages/reset_password", isNotLoggedin, resetPasswordPage);
+router.post("/pages/reset_password", isNotLoggedin, validator.validationRules[3], resetPassword);
 
 router.get("/pages/admin_page", isLoggedin, adminpage);
 

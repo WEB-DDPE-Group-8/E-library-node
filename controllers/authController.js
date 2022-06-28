@@ -159,7 +159,7 @@ exports.login = (req, res, next) => {
 
 // Password reset link request Page
 exports.forgotPassword = (req, res, next) => {
-  res.render("pages/passReset_Request");
+  res.render("auth/passReset_Request");
 };
 
 /* send reset password link in email */
@@ -167,45 +167,82 @@ exports.sendResetPassLink = (req, res, next) => {
   const { body } = req;
   const email = body.email;
 
-  var query2 = 'SELECT * FROM users WHERE email ="' + email + '"';
+  var query2 = 'SELECT * FROM user WHERE email ="' + email + '"';
   dbConn.query(query2, function (err, result) {
     if (err) throw err;
 
-    var type = "";
-    var msg = "";
-
-    if (result[0].email.length > 0) {
-      var token = randtoken.generate(20);
-      const sent = sendMail.sendingMail(email, token);
-
-      if (sent != "0") {
-        var data = { token: token };
+    if (result.length > 0) {
+      const token = randtoken.generate(20);
+      const sent =  sendMail.sendingMail(email, token);
+      
+      if (sent != '0') 
+      {
+        var data = {token: token}
         var query3 = 'UPDATE users SET ? WHERE email ="' + email + '"';
-        dbConn.query(query3, data, function (err, result) {
-          if (err) throw err;
-        });
-
-        type = "success";
-        msg = "The reset password link has been sent to your email address";
-      } else {
-        type = "error";
-        msg = "Something goes to wrong. Please try again";
+        dbConn.query(query3, data, function(err, result) {
+          if(err) 
+            throw err 
+        })
+        
+       res.render('auth/passReset_Request', 
+            {msg: 'The reset password link has been sent to your email address'});
+       } 
+      else {		
+        res.render('auth/passReset_Request', 
+              {error: 'Something goes to wrong. Please try again'})
       }
-    } else {
-      console.log("2");
-      type = "error";
-      msg = "The Email is not registered with us";
-    }
-
-    message = req.flash(type, msg);
-    res.render("pages/reset_password");
+    } 
+    else {
+      console.log('2');			
+      res.render('auth/passReset_Request', 
+          {error: 'The Email is not registered with us'})				
+    }		
   });
-};
+}
 
-// Password reset link request Page
+
 exports.resetPasswordPage = (req, res, next) => {
-  res.render("pages/reset_password");
-};
+  res.render("auth/reset_password", {token: req.query.token});
+}
+
+/* update password to database */
+exports.resetPassword = (req, res, next) => {
+	
+	const errors = validationResult(req);
+	const { body } = req;
+
+    if (!errors.isEmpty()) {
+        return res.render('auth/reset_password', 
+						   {token: token, error: errors.array()[0].msg});
+		}
+	
+	var token = body.token;
+    var query5 = 'SELECT * FROM user WHERE token ="' + token + '"';
+    dbConn.query(query5, async(err, result) =>{
+        if (err) 
+			throw err;
+
+        if (result.length > 0) {                  
+            const hashPass = await encrypt.encryptPassword(body.password);
+			var query5 = 'UPDATE user SET password = ? WHERE email ="' + result[0].email + '"';
+            dbConn.query(query5, hashPass, function(err, result) {
+                if(err) 
+					throw err
+                });
+				
+				res.render("auth/login", 
+						{token: 0, msg: 'Your password has been updated successfully'});			            
+        } 
+		else { 
+            console.log('2');
+			res.render("auth/reset_password", 
+						{token: token, error: 'Invalid link; please try again'});			
+        } 
+    });
+}
+
+
+
 
 exports.adminpage = (req, res, next) => {
   res.render("pages/admin_page");
