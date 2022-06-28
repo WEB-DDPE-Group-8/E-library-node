@@ -1,54 +1,110 @@
-<%- include('../partials/header',{title:'Login'}); -%>
-   
-<div class="container p-4">
-    <div class="row">
-        <div class="col-md-7 mx-auto">
-            <div class="card text-center">
-                <div class="card-header bg-primary">
-                    <h3>Forgot Password </h3>
-                </div>
-			 
-					<form action="" method="POST" name="sendLink">     				
-						<div class="row">
-							<div class="col-10 float-center" style = "padding-left:40px">		
-								<label for="user_femail" class="float-left">Email Address</label>
-								<input type="email" class="form-control" 
-									name="email" id="user_femail" 
-									autocomplete="off" placeholder="Enter your email">
-							</div>
-						</div>
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Change Password</title>
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="icon" href="../multimedia/logo.png" type="image/icon type">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/pass.css">
+    <script src="../js/toggle.js" defer></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+	@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+html,body{
+    background: #f6f6f8;
+    font-family: 'Poppins', sans-serif;
+}
+::selection{
+    color: rgb(255, 255, 255);
+    background: #6665ee;
+}
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container .form{
+    background: rgb(255, 255, 255);
+    padding: 30px 35px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.container .form form .form-control{
+    height: 40px;
+    font-size: 15px;
+}
+.container .form form .forget-pass{
+    margin: -15px 0 15px 0;
+}
+.container .form form .forget-pass a{
+   font-size: 15px;
+}
+.container .form form .btn{
+    background: #5bec7b;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.container .form form .btn:hover{
+    background: #023110;
+}
+.container .form form .link{
+    padding: 5px 0;
+}
+.container .form form .link a{
+    color: #6665ee;
+}
+.container .login-form form p{
+    font-size: 14px;
+}
+.container .row .alert{
+    font-size: 14px;
+}
+.error {
+    border: 2px solid red;
+    border-radius: 4px;
+    background:rgba(250,0,0,0.5) ;
+}
+  </style>
+</head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+		<div class="col-md-4 offset-md-4 form">
+					
 						<% 
-						if(typeof msg !== 'undefined')
-						{ 
+							if(typeof error !== 'undefined')
+							{ 
 						%>
-							<div class="col-12">
-								<div class="success-msg">
-									<%= msg %>
-								</div>									
-							</div>
+							<p class="error">
+								<%= error		%>
+							</p>
 						<% 
-						}
-								
-						if(typeof error !== 'undefined')
-						{ 
-						%>
-							<div class="col-12">
-								<div class="err-msg">
-									<%= error %>
-								</div>									
-							</div>
-						<% 
-						} 
+							} 
 						%>
 						
-						<div class="col-3 form-btns">
-							<input type="submit" value="Send link">
-						</div>	
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+	<form method="post" action="" name = "sendLink">
 
-<%- include('../partials/footer'); -%>
+		<h2 class="text-center">Forgot Password</h2>
+		
+		<div class="form-group"><span>username</span><input type="email" name="email" class="form-control"
+			id= "user_femail" placeholder="enter your email" required /></div>
+			
+				
+		<div class="form-group"><input name="check_email" type="submit" value="Send Code"
+			class="btn form-control" /></div>
+	  </form>
+	</div>
+  </div>
+</div>
+</body>
+
+</html>						
+					

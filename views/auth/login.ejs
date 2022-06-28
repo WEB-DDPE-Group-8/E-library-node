@@ -534,10 +534,10 @@ foreach($errors as $error)
             </div>
             <div class="link forget-pass text-left">
               <label class="float-left" style="font-weight: normal">
-                <input type="checkbox" name="checkbox" /> Remember Me
+                <input type="checkbox" name="remember" /> Remember Me
               </label>
               <a
-                href="../pages/passReset_Request"
+                href="/auth/passReset_Request"
                 class="float-right"
                 style="color: #17202a"
               >
@@ -556,8 +556,13 @@ foreach($errors as $error)
               Not yet a member?<a href="./signup">Sign Up</a>
             </div>
           </form>
+          <script>
+            // document.cookie = "user=John; path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT"
+           let   myCookies = document.cookie.split(';').reduce((acc,val)=>{[newKey,newVal] = val.split('='); return acc;})
+            console.log(myCookies);
+          </script>
         </div>
       </div>
     </div>
   </body>
-</html>
+</html> 

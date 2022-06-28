@@ -2046,9 +2046,9 @@ p {
 }
 
 </style>
+
 <body>
   <%- include('../partials/navigation'); -%>
-
   <div class="main-content">
     <!-- Header -->
     <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px;">
@@ -2058,7 +2058,13 @@ p {
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
           <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white">Hello <?php echo $_SESSION["username"] ?></h1>
+            <% 
+            <!-- data.result.forEach(function(data) -->
+            <!-- { -->
+              %>
+
+            <h1 class="display-2 text-white"><%= data.profile.UserName %>
+              </h1>
             <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your
               work and manage your projects or assigned tasks</p>
             <!-- <a href="#!" class="btn btn-info">Edit profile</a> -->
@@ -2099,14 +2105,12 @@ p {
                 <div class="col">
                   <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                     <div>
-                      <span class="heading"><?php echo $_SESSION["uploads"] ?></span>
+                      <span class="heading"><%= data.uploads %></span>
                       <span class="description">Uploads</span>
                     </div>
                     <div>
                       <span class="heading">
-                        <?php
-                        echo $_SESSION["role"]; 
-                       ?>
+                        <%= data.profile.IsAdmin %>
                       </span>
                       <span class="description">Role</span>
                     </div>
@@ -2119,9 +2123,9 @@ p {
               </div>
               <div class="text-center">
                 <h3>
-                  <?php echo $_SESSION["username"] ?><span class="font-weight-light">, 27</span>
+                  <%= data.profile.UserName %><span class="font-weight-light"></span>
                 </h3>
-                <div class="h5 font-weight-300">
+                <!-- <div class="h5 font-weight-300">
                   <i class="ni location_pin mr-2"></i>Bucharest, Romania
                 </div>
                 <div class="h5 mt-4">
@@ -2129,10 +2133,9 @@ p {
                 </div>
                 <div>
                   <i class="ni education_hat mr-2"></i>University of Computer Science
-                </div>
+                </div> -->
                 <hr class="my-4">
-                <p><?php echo $_SESSION['about']  ?></p>
-                <a href="#">Show more</a>
+                <p><%= data.profile.about %></p>
               </div>
             </div>
           </div>
@@ -2145,16 +2148,14 @@ p {
                   <h3 class="mb-0">My account</h3>
                 </div>
                 <div class="col-4 text-right">
-                  <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                  
                 </div>
               </div>
             </div>
             <div class="card-body">
-              <?php 
-            include '../lib/update.php';
-           ?>
+           
 
-              <form action="profile.php" method="POST">
+              <form action="" method="POST">
                 <h6 class="heading-small text-muted mb-4">User information</h6>
                 <h2>
                   <!-- <?php
@@ -2163,8 +2164,10 @@ p {
                   {
                     echo($error);
                   }
-                } -->
-                ?></h2>
+                } 
+                ?>
+              -->
+            </h2>
                 <div class="pl-lg-4">
                   <div class="row">
                     <div class="col-lg-6">
@@ -2172,7 +2175,8 @@ p {
                         <label class="form-control-label" for="input-username">Username</label>
                         <input type="text" id="input-username" name="usrname"
                           class="form-control form-control-alternative" readonly placeholder="Username"
-                          value=<?php echo $_SESSION["username"] ?>
+                          value='<%= data.profile.UserName %>'
+                          />
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -2180,7 +2184,8 @@ p {
                         <label class="form-control-label" for="input-email">Email address</label>
                         <input type="email" id="input-email" readonly name="email"
                           class="form-control  form-control-alternative" placeholder="Email"
-                          value=<?php echo $_SESSION["email"]?>>
+                          value='<%= data.profile.Email %>'
+                          />
                       </div>
                     </div>
                   </div>
@@ -2190,9 +2195,8 @@ p {
                         <label class="form-control-label" for="input-first-name">First name</label>
                         <input type="text" id="input-first-name" readonly name="fname"
                           class="form-control form-control-alternative" placeholder="First name"
-                          value=
-                        <?php echo $_SESSION["firstname"] ?>
-                          
+                          value='<%= data.profile.FirstName %>'
+                          />
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -2200,9 +2204,8 @@ p {
                         <label class="form-control-label" for="input-last-name">Last name</label>
                         <input type="text" id="input-last-name" readonly name="lname"
                           class="form-control form-control-alternative" placeholder="Last name"
-                          value=
-                       <?php echo $_SESSION['lastname']?> 
-                          
+                          value='<%= data.profile.LastName %>'
+                          />
                       </div>
                     </div>
                   </div>
@@ -2215,7 +2218,7 @@ p {
                     <label>About Me</label>
                     <textarea rows="4" class="form-control form-control-alternative" name="about" readonly
                       placeholder="A few words about you ...">
-                      <!-- <?php echo $_SESSION['about']  ?> -->
+                      <%= data.profile.About %>
                     </textarea>
                   </div>
                   <div>
@@ -2225,7 +2228,7 @@ p {
               </form>
 
               
-                <a href="/logout" name="log_out" class="btn">Log out<a>
+                <a href="/logout" name="log_out" class="btn">Log out</a>
               
             </div>
             <button hidden onclick="cancelEdit()" class="btn upd-prof">Cancel<button>
@@ -2234,7 +2237,11 @@ p {
       </div>
     </div>
   </div>
-  </div>
+  <% 
+<!-- }) -->
+ %>
+
+  
   <script>
 let inp = document.getElementsByTagName("input");
 let txt = document.getElementsByTagName("textarea");
@@ -2266,6 +2273,7 @@ function cancelEdit() {
 
 
   </script>
+
   <!-- <?php include '../shared/myuploads.php'; ?>
   <?php
   if($_SESSION["role"]=="Admin"){

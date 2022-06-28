@@ -18,7 +18,7 @@ include '../config/dbconfig.php';
 	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js" defer></script>
 	<!-- custom admin js file link  -->
 	<script src="../js/admin_script.js"></script>
 	<script src="../js/script.js" defer></script>
@@ -224,10 +224,10 @@ include '../inc/footer.php';
 		makechart();
 		userchart();
 		eventschart()
-
+console.log("doc ready");
 		function eventschart() {
 			$.ajax({
-				url: "data.php",
+				url: "/pages/stats",
 				method: "POST",
 				data: {
 					action: 'fetchevent'
@@ -292,7 +292,7 @@ include '../inc/footer.php';
 
 		function userchart() {
 			$.ajax({
-				url: "data.php",
+				url: "/pages/stats",
 				method: "POST",
 				data: {
 					action: 'fetch1'
@@ -357,7 +357,7 @@ include '../inc/footer.php';
 
 		function makechart() {
 			$.ajax({
-				url: "data.php",
+				url: "/pages/stats",
 				method: "POST",
 				data: {
 					action: 'fetch'

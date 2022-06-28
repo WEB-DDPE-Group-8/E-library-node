@@ -37,7 +37,6 @@
   }else{
       document.querySelector('.header .header-2').classList.remove('active');
   }
-
   }
 
   window.onload = () =>{
@@ -1029,17 +1028,6 @@
 
     <div class="icons">
       <div id="search-btn" class="fas fa-search"></div>
-      <!-- <?php
-        $uri = $_SERVER['REQUEST_URI']; 
-        if(!str_contains($uri,"index")){
-          include "../inc/counter.php";
-          }
-        else if(str_contains($uri,"index")||str_contains($uri,"html/") )
-        {
-        include "inc/counter.php";
-        }
-       
-      ?> -->
 
       <a href="/pages/cart" class="fas fa-shopping-cart">
         <!-- <?php  if(isset($_SESSION["UserID"])) echo "[".$row_count."]"; ?> -->
@@ -1048,7 +1036,6 @@
 
       <a href="/pages/profile" class="fas fa-user"></a>
       <br />
-
       <!-- <?php
         if(isset($_SESSION["username"]))
         echo $_SESSION["username"] ;
@@ -1072,8 +1059,13 @@
           {
           ?> -->
       <!-- <i class="fas fa-user-gear"></i> -->
-
+           
+              <% if(typeof role !== 'undefined' && role == 'Admin'){ %>
       <a href="/pages/admin_page">Dashboard</a>
+                <% }  %>
+      <script>
+        console.log(document.cookie);
+      </script>
 
       <!-- <?php 
         };

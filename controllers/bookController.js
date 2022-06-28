@@ -1,6 +1,9 @@
 var randtoken = require("rand-token");
 var nodemailer = require("nodemailer");
 
+const csvtojson = require('csvtojson');
+var Json2csvParser = require('json2csv').Parser;
+
 const util = require("util");
 
 const { validationResult } = require("express-validator");
@@ -58,7 +61,7 @@ exports.bookshelf = async (req, res, next) => {
   }
   // }
 
-  // console.log(resd);
+  res.locals.role = req.session.Role;
   res.render("pages/bookshelf", { data: results });
 };
 
@@ -72,7 +75,8 @@ exports.desc = async (req, res, next) => {
   results = await db(desc).then((resd) => {
     return resd;
   });
-
+  console.log(results);
+  res.locals.role = req.session.Role;
   res.render("pages/desc", { data: results });
 };
 
@@ -84,6 +88,64 @@ exports.booksPage = (req, res, next) => {
       console.log(error);
       throw error;
     }
+    res.locals.role = req.session.Role;
     res.render("pages/admin_books", { data: result });
   });
 };
+
+exports.exportCSV = (req, res, next) => {
+
+  let query = "SELECT * FROM books";
+  dbConn.query(query, function(err, results, fields) {
+      if (err)
+          throw err;
+
+      const jsonCoursesRecord = JSON.parse(JSON.stringify(results));
+
+      // -> Convert JSON to CSV data
+      const csvFields = ['BookID', 'Title', 'Description ', 'Language ',
+          'Year', 'Publisher', 'Price', 'Cover'
+      ]
+
+      const json2csvParser = new Json2csvParser({ csvFields });
+      const csv = json2csvParser.parse(jsonCoursesRecord);
+
+      res.setHeader("Content-Type", "text/csv");
+      res.setHeader("Content-Disposition", "attachment; filename=books.csv");
+      res.status(200).end(csv);
+  });
+}
+
+exports.getStats = (req,res,next) =>{
+  var query1 = "SELECT Genre, COUNT(BookID) AS Total FROM books GROUP BY Genre";
+  // var id = request.query.bookid;
+  dbConn.query(query1, async (error, result) => {
+    if (error) {
+      console.log(error);
+      throw error;
+    }
+    // res.locals.role = req.session.Role;
+   let data = {};
+   data.language = result[0]["Genre"];
+   data.total = result[0]["Total"];
+   data.color = '#' + Math.random(100000, 999999)
+    // res.sendStatus(200).json(data);
+  });
+}
+
+// exports.getStats = (req,res,next) =>{
+//   var query1 =  "SELECT IsAdmin, COUNT(UserID) AS Total FROM user GROUP BY IsAdmin";
+//   // var id = request.query.bookid;
+//   dbConn.query(query1, async (error, result) => {
+//     if (error) {
+//       console.log(error);
+//       throw error;
+//     }
+//     res.locals.role = req.session.Role;
+//    let data = {};
+//    data.language = result[0]["Genre"];
+//    data.total = result[0]["Total"];
+//    data.color = '#' + Math.random(100000, 999999)
+//     res.sendStatus(200).json(data);
+//   });
+// }

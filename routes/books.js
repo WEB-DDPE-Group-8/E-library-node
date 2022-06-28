@@ -12,7 +12,12 @@ const {
 } = require("../controllers/authController");
 
 
-const { desc,booksPage, bookshelf  } = require("../controllers/bookController");
+const { desc,
+        booksPage, 
+        bookshelf,
+        exportCSV,
+        getStats
+        } = require("../controllers/bookController");
 
 const { isLoggedin, isNotLoggedin } = require("../lib/check_authentication");
 const validator = require("../lib/validation_rules");
@@ -26,6 +31,8 @@ router.get("/pages/bookshelf", isNotLoggedin, loginPage);
 
 router.get("/pages/admin_books", isLoggedin, booksPage);
 router.get("/pages/admin_books", isNotLoggedin, loginPage);
+router.get('/pages/exportCSV', isLoggedin, exportCSV);
 
+router.post("/pages/stats", isLoggedin, getStats);
 
 module.exports = router;

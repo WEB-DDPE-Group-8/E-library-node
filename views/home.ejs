@@ -110,12 +110,16 @@
         </div>
       </div>
     </section>
-
+    <script>
+      // document.cookie = "user=John; path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT"
+      console.log(document.cookie.split(';').split('='));
+      // document.cookie.split(';')
+    </script>
     <!-- icons section ends -->
 
     <!-- featured section starts  -->
 
-    <%- include('./partials/bookslider'); -%>
+    <%- include('./partials/section-slider'); -%>
 
     <!-- featured section ends -->
 
@@ -297,7 +301,7 @@
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
   <!-- custom js file link  -->
-  <script
+  <!-- <script
 searchForm = document.querySelector('.search-form');
 
 document.querySelector('#search-btn').onclick = () =>{
@@ -459,4 +463,4 @@ var swiper = new Swiper(".blogs-slider", {
   },
 });
 
-  </script>
+  </script> -->
